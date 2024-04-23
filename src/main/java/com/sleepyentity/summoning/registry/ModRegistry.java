@@ -1,8 +1,10 @@
-package com.example.an_addon.registry;
+package com.sleepyentity.summoning.registry;
 
-import com.example.an_addon.item.ExampleCosmetic;
+import com.sleepyentity.summoning.glyphs.EffectSummonImp;
+import com.sleepyentity.summoning.item.ExampleCosmetic;
 import com.hollingsworth.arsnouveau.ArsNouveau;
 import com.hollingsworth.arsnouveau.api.sound.SpellSound;
+import com.sleepyentity.summoning.SleepySummoningMain;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.Item;
@@ -12,13 +14,11 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import static com.example.an_addon.ExampleANAddon.MODID;
-
 public class ModRegistry {
 
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
-    public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MODID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, SleepySummoningMain.MODID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, SleepySummoningMain.MODID);
+    public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, SleepySummoningMain.MODID);
 
 
     public static void registerRegistries(IEventBus bus){
@@ -40,7 +40,7 @@ public class ModRegistry {
     }
 
     static SoundEvent makeSound(String name) {
-        return new SoundEvent(new ResourceLocation(MODID, name));
+        return new SoundEvent(new ResourceLocation(SleepySummoningMain.MODID, name));
     }
 
 }

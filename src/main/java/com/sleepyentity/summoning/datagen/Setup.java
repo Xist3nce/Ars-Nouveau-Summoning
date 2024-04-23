@@ -1,12 +1,12 @@
-package com.example.an_addon.datagen;
+package com.sleepyentity.summoning.datagen;
 
-import com.example.an_addon.ExampleANAddon;
+import com.sleepyentity.summoning.SleepySummoningMain;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = ExampleANAddon.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = SleepySummoningMain.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Setup {
 
     //use runData configuration to generate stuff, event.includeServer() for data, event.includeClient() for assets

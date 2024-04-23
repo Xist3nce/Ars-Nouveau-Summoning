@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "an_addon:item/test"
+    "layer0": "sleepysummoning:item/summonimp"
   }
 }

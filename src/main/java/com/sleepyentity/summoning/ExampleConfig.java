@@ -1,4 +1,4 @@
-package com.example.an_addon;
+package com.sleepyentity.summoning;
 
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

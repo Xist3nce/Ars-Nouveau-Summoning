@@ -1,6 +1,6 @@
-package com.example.an_addon;
+package com.sleepyentity.summoning;
 
-import com.example.an_addon.registry.ModRegistry;
+import com.sleepyentity.summoning.registry.ModRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -14,14 +14,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(ExampleANAddon.MODID)
-public class ExampleANAddon
+@Mod(SleepySummoningMain.MODID)
+public class SleepySummoningMain
 {
-    public static final String MODID = "an_addon";
+    public static final String MODID = "sleepysummoning";
 
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public ExampleANAddon() {
+    public SleepySummoningMain() {
         IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
         ModRegistry.registerRegistries(modbus);
         ArsNouveauRegistry.registerGlyphs();
@@ -47,7 +47,7 @@ public class ExampleANAddon
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         // do something when the server starts
-        LOGGER.info("HELLO from server starting");
+        LOGGER.info("Initializing SleepySummoning...");
     }
 
 }
