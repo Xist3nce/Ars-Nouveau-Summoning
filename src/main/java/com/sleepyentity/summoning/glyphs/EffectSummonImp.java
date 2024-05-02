@@ -1,9 +1,15 @@
 package com.sleepyentity.summoning.glyphs;
 
 import com.hollingsworth.arsnouveau.api.spell.*;
+import com.hollingsworth.arsnouveau.common.items.curios.SummoningFocus;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAmplify;
 import com.sleepyentity.summoning.SleepySummoningMain;
+import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
@@ -34,7 +40,7 @@ public class EffectSummonImp extends AbstractEffect {
 
     @Override
     public int getDefaultManaCost() {
-        return 10;
+        return 20;
     }
 
     @Override
@@ -70,10 +76,15 @@ public class EffectSummonImp extends AbstractEffect {
             undeadentity.finalizeSpawn((ServerLevelAccessor) world, world.getCurrentDifficultyAt(blockpos), MobSpawnType.MOB_SUMMONED, null, null);
             undeadentity.setOwner(shooter);
             undeadentity.setLimitedLife(ticks);
+            //Add potion effect to the summoned entity
+            undeadentity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, ticks, 1));
             summonLivingEntity(rayTraceResult, world, shooter, spellStats, spellContext, resolver, undeadentity);
         }
+
         shooter.addEffect(new MobEffectInstance(ModPotions.SUMMONING_SICKNESS_EFFECT.get(), ticks));
-        System.out.println("Imp Summoned!");
+        //Take health from the caster with the damage source being themselves
+        shooter.hurt(DamageSource.MAGIC, (shooter.getHealth()/2)+1);
+        System.out.println("Demon Summoned at power level " + spellStats.getAmpMultiplier());
     }
 
 
@@ -84,12 +95,12 @@ public class EffectSummonImp extends AbstractEffect {
     }
     @Override
     public SpellTier defaultTier() {
-        return SpellTier.THREE;
+        return SpellTier.TWO;
     }
     @Override
     public String getBookDescription() {
-        return "Summons a number of Imp allies that will attack nearby hostile enemies. These Imps will last a short time until they begin to take damage, but time may be extended with the " +
-                "Extend Time augment.  Additionally, their summoned weapons are changed using augments, use Amplify to give it a better sword, or Pierce to give it a bow.  Adding Split after the effect will add to the number of summoned skeletons.";
+        return "Summons a number of demonic allies that will attack nearby hostile enemies. These demons will last a short time until they begin to take damage, but time may be extended with the " +
+                "Extend Time augment.  Additionally, the demon summoned changes based on augments, use Amplify to summon stronger demons, or Pierce to give it a bow.  Adding Split after the effect will add to the number of summoned demons.";
     }
     @Nonnull
     @Override

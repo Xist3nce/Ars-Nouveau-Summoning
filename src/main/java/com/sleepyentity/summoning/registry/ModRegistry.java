@@ -1,13 +1,11 @@
 package com.sleepyentity.summoning.registry;
 
-import com.sleepyentity.summoning.glyphs.EffectSummonImp;
-import com.sleepyentity.summoning.item.ExampleCosmetic;
+import com.sleepyentity.summoning.item.DeathCrown;
 import com.hollingsworth.arsnouveau.ArsNouveau;
 import com.hollingsworth.arsnouveau.api.sound.SpellSound;
 import com.sleepyentity.summoning.SleepySummoningMain;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -37,7 +35,7 @@ public class ModRegistry {
 
 
     static {
-        EXAMPLE = ITEMS.register("star_hat", () -> new ExampleCosmetic(new Item.Properties().tab(ArsNouveau.itemGroup)));
+        EXAMPLE = ITEMS.register("star_hat", () -> new DeathCrown(new Item.Properties().tab(ArsNouveau.itemGroup)));
     }
 
     static SoundEvent makeSound(String name) {

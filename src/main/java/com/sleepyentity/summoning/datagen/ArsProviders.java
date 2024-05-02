@@ -44,7 +44,7 @@ public class ArsProviders {
 
             Path output = this.generator.getOutputFolder();
 
-            recipes.add(get(EffectSummonImp.INSTANCE).withItem(Items.DIRT));
+            recipes.add(get(EffectSummonImp.INSTANCE).withItem(Items.NETHERRACK, 1).withItem(Items.GOLD_INGOT, 1).withItem(Items.REDSTONE, 1));
 
             for (GlyphRecipe recipe : recipes) {
                 Path path = getScribeGlyphPath(output, recipe.output.getItem());
